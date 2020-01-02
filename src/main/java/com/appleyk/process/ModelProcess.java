@@ -116,7 +116,7 @@ public class ModelProcess {
 	public  String queryAbstract(String querySentence) {
 											
 		// 句子抽象化
-		Segment segment = HanLP.newSegment().enableCustomDictionary(true);							
+		Segment segment = HanLP.newSegment().enableCustomDictionary(true);	//启用用户自定义词典						
 		List<Term> terms = segment.seg(querySentence);
 		String abstractQuery = "";
 		abstractMap = new HashMap<String, String>();
@@ -288,15 +288,7 @@ public class ModelProcess {
 			 * spark.app.name 用于指定应用的程序名称  == 
 			 */
 		
-		    /**
-		     * 题外话
-		     * 贝叶斯是谁？
-		     * 贝叶斯(约1701-1763) Thomas Bayes，英国数学家。
-		     * 1702年出生于伦敦，做过神甫。
-		     * 1742年成为英国皇家学会会员。
-		     * 1763年4月7日逝世。
-		     * 贝叶斯在数学方面主要研究概率论 == 贝叶斯公式是概率论中较为重要的公式
-		     */
+		  
 			SparkConf conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("local[*]");
 			JavaSparkContext sc = new JavaSparkContext(conf);
 
@@ -549,5 +541,6 @@ public class ModelProcess {
 
 	public static void main(String[] agrs) throws Exception {
 		System.out.println("Hello World !");
+		//analyQuery("");
 	}
 }
